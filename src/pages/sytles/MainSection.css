@@ -1,0 +1,27 @@
+.main__section {
+    background: linear-gradient(rgba(0, 0, 0, 0.562), rgba(0, 0, 0, 0.562)), url("../../assets/images/mainsection.jpg") no-repeat center center;
+    background-size: cover;
+    padding: 100px 0px;
+    height: 500px;
+    margin-bottom: -2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main__section h1 {
+    color: #fff;
+    font-weight: 600;
+}
+
+@media only screen and(max-width: 768px){
+    .filter__widget {
+        margin-bottom: 30px;
+    }
+
+    .filter__widget select {
+        padding: 7px 20px;
+        font-size: 0.9rem;
+
+    }
+}
