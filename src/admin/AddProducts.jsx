@@ -41,8 +41,7 @@ const AddProducts = () => {
 
   useEffect(() => {
     getProductLists();
-
-  },[])
+  })
 
   const addProduct = async (e) => {
     e.preventDefault();

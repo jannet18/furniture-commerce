@@ -1,23 +1,23 @@
 import React from 'react';
-// import '../pages/sytles/Cart.css'
+import '../pages/sytles/Favorite.css';
 import Helmet from '../components/Helmet/Helmet';
 import MainSection from '../components/UI/MainSection';
 import { Container, Row, Col } from 'reactstrap';
 import { favoriteActions } from '../redux/slices/FavoriteSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const Favorite = () => {
   const favoriteItems = useSelector((state) => state?.favorite?.favoriteItems);
-  const totalQuantity = useSelector((state) => state?.favorite?.totalQuantity);
+  // const totalQuantity = useSelector((state) => state?.favorite?.totalQuantity);
   return (
     <Helmet title='Favorites'>
       <MainSection title="Favorite Items">
         <section>
         <Container>
           <Row>
-            <Col lg="9">
+            <Col lg="8">
               {
                 favoriteItems?.length === 0 ? (
                   <h2 className='fs-4 text-center'>No item added to favourites</h2> ) : ( 
@@ -38,24 +38,16 @@ const Favorite = () => {
                       }
                     </tbody>
                   </table>
-              )}
-            </Col>
-             <Col lg="3">
-              <div>
-                <h6 className="d-flex align-items-center justify-content-center">
-                  Total Quantity
-                </h6>
-                <span className="fs-4 fw-bold">{totalQuantity}</span>
-              </div>
-              {/* <div>
-                <button className="buy__btn w-100 mt-3">
-                  <Link to="/checkout">Checkout</Link>
-                </button>
-                <button className="buy__btn w-100">
-                  <Link to="/shop">Continue Shopping</Link>
-                </button>
-              </div> */}
-            </Col>
+                  )}
+              </Col>
+              {/* <Col lg="4">
+                  <div>
+                  <h6 className="d-flex align-items-center justify-content-center">
+                    Total Quantity
+                  </h6>
+                  <span className="fs-4 fw-bold">{totalQuantity}</span>
+                </div>
+              </Col> */}
           </Row>
           </Container>
           </section>

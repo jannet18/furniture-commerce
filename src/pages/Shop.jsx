@@ -8,7 +8,8 @@ import ProductsLists from "../components/UI/ProductsList";
 import useGetData from "../firebase/useGetData";
 
 const Shop = () => {
-  const [productData, setProductData] = useState();
+  // const [productData, setProductData] = useState({product});
+  const [product, setProduct] = useState();
 
   const { data: productsData } = useGetData("products")
 
@@ -20,7 +21,8 @@ const Shop = () => {
         (product) => product?.category === "chair"
       );
 
-      setProductData(filterProducts);
+      // setProductData(filterProducts);
+      setProduct(filterProducts);
     }
 
     if (filterValue === "sofa") {
@@ -28,7 +30,8 @@ const Shop = () => {
         (product) => product?.category === "sofa"
       );
 
-      setProductData(filterProducts);
+      // setProductData(filterProducts);
+      setProduct(filterProducts);
     }
 
     if (filterValue === "chaise") {
@@ -36,15 +39,16 @@ const Shop = () => {
         (product) => product?.category === "chaise"
       );
 
-      setProductData(filterProducts);
+      // setProductData(filterProducts);
+      setProduct(filterProducts);
     }
 
     if (filterValue === "outdoor") {
       const filterProducts = productsData?.filter(
         (product) => product?.category === "outdoor"
       );
-
-      setProductData(filterProducts);
+      // setProductData(filterProducts);
+      setProduct(filterProducts);
     }
   };
 
@@ -58,7 +62,8 @@ const Shop = () => {
         .includes(searchTerm.toLowerCase())
     );
 
-    setProductData(searchedProducts);
+    // setProductData(searchedProducts);
+    setProduct(searchedProducts);
   };
   return (
     <>
@@ -107,7 +112,8 @@ const Shop = () => {
               {productsData?.length === 0 ? (
                 <h1 className="text-center fs-4">Not available!</h1>
               ) : (
-                <ProductsLists data={productData} />
+                // <ProductsLists data={productData} />
+                  <ProductsLists data={product} />
               )}
               <Col></Col>
             </Row>

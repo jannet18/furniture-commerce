@@ -1,6 +1,6 @@
 import React from "react";
 // import productImg from "../../assets/images/couch.jpg";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import "../../pages/sytles/productCard.css";
@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 
 const ProductCard = ({product}) => {
   const dispatch = useDispatch();
-   const {id} = useParams();
+  //  const {id} = useParams();
 
   const addToCart = () => {
     dispatch(cartActions.addItem({

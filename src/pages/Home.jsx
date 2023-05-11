@@ -46,7 +46,7 @@ const Home = () => {
     setMobileProducts(filteredMobileProducts);
     setOutdoorProducts(filteredOutdoorProducts);
 
-  },[]);
+  },[productsData]);
 
   return (
     <Helmet title={"Home"}>

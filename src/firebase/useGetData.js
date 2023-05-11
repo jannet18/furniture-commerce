@@ -16,7 +16,7 @@ const useGetData = (collectionName) => {
       });
     };
     getData();
-  }, []);
+  }, [collectionRef, loading]);
 
   return { data };
 };
