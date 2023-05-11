@@ -10,17 +10,17 @@ import { motion } from 'framer-motion';
 
 const Favorite = () => {
   const favoriteItems = useSelector((state) => state?.favorite?.favoriteItems);
-  // const totalQuantity = useSelector((state) => state?.favorite?.totalQuantity);
+  const totalQuantity = useSelector((state) => state?.favorite?.totalQuantity);
   return (
     <Helmet title='Favorites'>
       <MainSection title="Favorite Items">
         <section>
         <Container>
           <Row>
-            <Col lg="8">
+            <Col lg="9">
               {
                 favoriteItems?.length === 0 ? (
-                  <h2 className='fs-4 text-center'>No item added to favourites</h2> ) : ( 
+                  <h2 className='fs-4 text-center'>No item added to favorites</h2> ) : ( 
                   <table className='table bordered'>
                     <thead>
                       <tr>
@@ -40,14 +40,14 @@ const Favorite = () => {
                   </table>
                   )}
               </Col>
-              {/* <Col lg="4">
+              <Col lg="3">
                   <div>
                   <h6 className="d-flex align-items-center justify-content-center">
                     Total Quantity
                   </h6>
                   <span className="fs-4 fw-bold">{totalQuantity}</span>
                 </div>
-              </Col> */}
+              </Col>
           </Row>
           </Container>
           </section>
