@@ -8,7 +8,7 @@ import ProductsLists from "../components/UI/ProductsList";
 import useGetData from "../firebase/useGetData";
 
 const Shop = () => {
-  // const [productData, setProductData] = useState({product});
+  // const [productData, setProductData] = useState();
   const [product, setProduct] = useState();
 
   const { data: productsData } = useGetData("products")
@@ -18,11 +18,12 @@ const Shop = () => {
 
     if (filterValue === "chair") {
       const filterProducts = productsData?.filter(
-        (product) => product?.category === "chair"
+         (product) => product?.category === "chair"
+        // productData => productData?.category === 'chair'
       );
 
       // setProductData(filterProducts);
-      setProduct(filterProducts);
+       setProduct(filterProducts);
     }
 
     if (filterValue === "sofa") {
@@ -74,9 +75,9 @@ const Shop = () => {
           <Container>
             <Row>
               <Col lg="3" md="3">
-                <div className="filter__widget">
+                <div className="filter__widget mb-2">
                   <select onChange={handleFilter}>
-                    <option>Filter By Category</option>
+                    <option >Filter By Category</option>
                     <option value="chair">Chair</option>
                     <option value="sofa">Sofa</option>
                     <option value="chaise">Chaise</option>
@@ -85,7 +86,7 @@ const Shop = () => {
                 </div>
               </Col>
               <Col lg="3" md="3">
-                <div className="filter__widget">
+                <div className="filter__widget mb-2">
                   <select>
                     <option>Sort By</option>
                     <option value="ascending">Ascending</option>

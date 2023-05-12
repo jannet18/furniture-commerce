@@ -23,10 +23,14 @@ const favoriteSlice = createSlice({
                     image: newItem.photoURL,
                     price: newItem.price,
                     quantity: 1,
+                    totalPrice: newItem.price
                 })
             } else {
                 existingItem.quantity++
+                existingItem.totalPrice = Number(existingItem.totalPrice) + Number
+                    (newItem.price)
             }
+            state.totalQuantity = state.totalQuantity++
         },
         deleteItem: (state, action) => {
         const id = action.payload
