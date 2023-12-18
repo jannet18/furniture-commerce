@@ -26,7 +26,7 @@ const ProductDetails = () => {
 
   const { data: productsData, loading } = useGetData("products");
 
-  // const product = products.find((item) => item.id === id);
+  // const product = productsData?.find((item) => item.id === id);
 
   const docRef = doc(db, "products", id);
 
@@ -49,8 +49,8 @@ const ProductDetails = () => {
     description,
     price,
     category,
-    // avgRating,
-    // reviews,
+    avgRating,
+    reviews,
   } = product || {};
 
   // console.log(imgUrl)
@@ -122,7 +122,7 @@ const ProductDetails = () => {
                     <i className="bi bi-star-half"></i>
                   </span>
                 </div>
-                <p>{/* <span>{avgRating}</span> rating */}</p>
+                <p><span>{avgRating}</span> rating</p>
               </div>
               <div className="d-flex align-items-center gap-5">
                 <span className="product__price">${price}</span>
@@ -159,7 +159,7 @@ const ProductDetails = () => {
                   Reviews
                 </h5>
                 {/* no span, include in the h5 */}
-                {/* <span>({reviews.length})</span> */}
+                <span>({reviews?.length})</span> 
               </div>
               {tab === "desc" ? (
                 <div className="tab__content mt-5">
@@ -168,7 +168,7 @@ const ProductDetails = () => {
               ) : (
                 <div className="product__review mt-5">
                   <div className="review__wrapper">
-                    {/* <ul>
+                    <ul>
                       {product?.reviews?.map((review, id) => {
                         return (
                           <li key={id} className="mb-4">
@@ -178,7 +178,7 @@ const ProductDetails = () => {
                           </li>
                         );
                       })}
-                    </ul> */}
+                    </ul>
                     {/* <ul>
         
                       {product.reviews.map(review, id => { return (

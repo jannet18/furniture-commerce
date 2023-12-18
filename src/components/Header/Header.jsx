@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import "./Header.css";
 import { motion } from "framer-motion";
@@ -35,11 +35,11 @@ const Header = () => {
   //   });
   // };
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    // stickyHeader();
-    // return () => window.removeEventListener("scroll", stickyHeader);
-  });
+  //   // stickyHeader();
+  //   // return () => window.removeEventListener("scroll", stickyHeader);
+  // },[]);
 
   const menuToggle = () => menuRef.current?.classList?.toggle("active__menu");
   const navigateToCart = () => {

@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
-import { db, storage } from "../firebase/config";
+// import { db, storage } from "../firebase/config";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const AddProducts = () => {
-
   const [productLists, setProductLists] = useState(["products"]);
 
-// new product states
+  // new product states
   const [enterTitle, setEnterTitle] = useState("");
   const [enterShortDesc, setEnterShortDesc] = useState("");
   const [enterDescription, setEnterDescription] = useState("");
@@ -32,16 +31,16 @@ const AddProducts = () => {
         ...doc.data(),
         id: doc.id,
       }));
-      setProductLists(filteredData === productLists)
-      console.log(filteredData)
-    } catch(error) {
-      toast.error("error.message")
+      setProductLists(filteredData === productLists);
+      console.log(filteredData);
+    } catch (error) {
+      toast.error("error.message");
     }
-  }
+  };
 
   useEffect(() => {
     getProductLists();
-  })
+  }, []);
 
   const addProduct = async (e) => {
     e.preventDefault();
@@ -83,7 +82,6 @@ const AddProducts = () => {
       );
       toast.success("Product successfully added!");
       navigate("/dashboard/allproducts");
-
     } catch (error) {
       setLoading(false);
       toast.error("Product not added!");

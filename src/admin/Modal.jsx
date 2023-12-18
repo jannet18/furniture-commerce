@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
@@ -26,9 +26,9 @@ const Modal = () => {
     setUpdateProduct({...setUpdateProduct, [e.target.id]: e.target.value});
   };
 
-  useEffect(() => {
+  // useEffect(() => {
 
-  },[])
+  // },[])
 
 
   const handleSubmit = (e) => {
